@@ -10,7 +10,7 @@
 ## Screenshot
 ![alt text](https://github.com/xg590/upload2s3/raw/main/screenshot.png "s3") 
 ## Usage
-1. Create a private bucket on AWS S3. 
+1. Create a private bucket on AWS S3. (You can do it via AWS web console as well)
 ```python
 region_name    = 'ap-northeast-2'
 Bucket         = 'mybucketname2077'   # Only alphanumericals
