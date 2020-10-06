@@ -52,4 +52,5 @@ Access key ID,Secret access key
 AKIAJDWIOJDWBRKQW,im89hw31b89h24UEBGWD9
 EOF
 chown www-data:www-data /usr/lib/cgi-bin/access_key.csv
+chmod 600 /usr/lib/cgi-bin/access_key.csv # ensure nobody except root or apache2 can access the secret 
 ```
