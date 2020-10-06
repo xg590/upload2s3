@@ -12,7 +12,7 @@
 ## Usage
 1. Create a private bucket on AWS S3. (You can do it via AWS web console as well)
 ```python
-region_name    = 'ap-northeast-2'
+region_name    = 'ap-northeast-2'     # Seoul, South Korea
 Bucket         = 'mybucketname2077'   # Only alphanumericals
 access_key_csv = 'access_key.csv'     # Path to Your Key File
 
