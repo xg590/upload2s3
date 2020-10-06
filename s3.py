@@ -27,22 +27,22 @@ upload_link   = client.generate_presigned_post(Bucket      = Bucket,
                                                Key         = Key,
                                                ExpiresIn   = int(ExpiresIn) * 60)
 
-input_field = ''.join([f'<input type="hidden" name="{i}" value="{j}" />' for i, j in upload_link['fields'].items()])
- 
-print(f'''Content-type:text/html
-
-<!DOCTYPE html>
+hidden_input_field = ''.join([f'<input type="hidden" name="{i}" value="{j}" />' for i, j in upload_link['fields'].items()])
+DOM = f'''<!DOCTYPE html>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   </head>
   <body>
     <form action="{upload_link['url']}" method="post" enctype="multipart/form-data">
-      {input_field}
+      {hidden_input_field}
       <input type="file"   name="file" style="height: 200px; width: 400px"/> <br />
       <input type="submit" name="submit" value="Upload to Amazon S3" style="height: 200px; width: 400px"/>
     </form>
   <br>Upload your file then you can share the following link so everyone can download it.<br>
   <a href="{download_link}">{download_link}</a>
   </body>
-</html>''')
+</html>'''
+
+print('Content-type:text/html\n\n')
+print(DOM)
