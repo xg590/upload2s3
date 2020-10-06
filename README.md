@@ -12,12 +12,12 @@
 ## Usage
 1. Create a private bucket on AWS S3. (You can do it via AWS web console as well)
 ```python
-region_name    = 'ap-northeast-2'     # Seoul, South Korea
-Bucket         = 'mybucketname2077'   # Only alphanumericals
-access_key_csv = 'access_key.csv'     # Path to Your Key File
+region_name           = 'ap-northeast-2'     # Seoul, South Korea
+Bucket                = 'mybucketname2077'   # Only alphanumericals
+aws_access_key_id     = 'AKIAJDWIOJDWBRKQW'
+aws_secret_access_key = 'im89hw31b89h24UEBGWD9'
 
 import csv, boto3
-with open(access_key_csv) as f: aws_access_key_id, aws_secret_access_key = [i for i in csv.reader(f)][1] 
 from botocore.config import Config
 session = boto3.Session(region_name = region_name , aws_access_key_id = aws_access_key_id , aws_secret_access_key = aws_secret_access_key)
 client = session.client(service_name = 's3', config = Config(signature_version='s3v4'))
@@ -52,5 +52,5 @@ Access key ID,Secret access key
 AKIAJDWIOJDWBRKQW,im89hw31b89h24UEBGWD9
 EOF
 chown www-data:www-data /usr/lib/cgi-bin/access_key.csv
-chmod 600 /usr/lib/cgi-bin/access_key.csv # ensure nobody except root or apache2 can access the secret 
+chmod 600 /usr/lib/cgi-bin/access_key.csv # ensure nobody except root and apache2 can access the secret 
 ```
